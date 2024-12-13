@@ -19,9 +19,16 @@ body {
 }
 
 .main {
-  border: 8px solid #cac8b9;
+  /* border: 8px solid #cac8b9; */
+  border: rgb(237, 237, 240) solid 8px;
   border-radius: 24px;
   overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: absolute;
 }
 
 .name {
@@ -52,9 +59,9 @@ body {
   flex-direction: column;
   background-color: #f6f6f6;
   width: 400px;
-  height: 600px;
   overflow-y: scroll;
   overflow-x: hidden;
+  min-height: 70vh;
 }
 
 .message-left,
@@ -102,6 +109,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 400px;
+  border-top: 1px solid #9492927d;
 }
 
 .message-input {
@@ -141,6 +149,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: #ebebeb;
+  border-bottom: 1px solid #9492927d;
 }
 
 .users {
@@ -177,7 +186,7 @@ body {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, #6e7c7c, #4e5b5b);
   border-radius: 12px;
-  border: 3px solid #f1f1f1; /* Gives a space between the thumb and the track */
+  border: 3px solid #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb:hover {

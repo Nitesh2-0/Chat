@@ -52,26 +52,27 @@ function scrollBottom() {
 }
 
 // Typing functionality
-let typingTimeout;
+let isTyping = false;
 
 function emitTypingEvent() {
-  if (nameInput.value.trim()) {
+  if (nameInput.value.trim() && !isTyping) {
+    isTyping = true;
     socket.emit('typing', {
       typing: `✍️ ${nameInput.value} is typing a message`,
     });
-    clearTimeout(setTimeout);
-    typingTimeout = setTimeout(() => {
-      socket.emit('typing', { typing: '' });
-    }, 1000);
+  }
+}
+
+function stopTypingEvent() {
+  if (isTyping) {
+    isTyping = false;
+    socket.emit('typing', { typing: '' });
   }
 }
 
 messageInput.addEventListener('focus', emitTypingEvent);
 messageInput.addEventListener('keypress', emitTypingEvent);
-
-messageInput.addEventListener('blur', () => {
-  socket.emit('typing', { typing: '' });
-});
+messageInput.addEventListener('blur', stopTypingEvent);
 
 socket.on('typing', (data) => {
   clearTyping();

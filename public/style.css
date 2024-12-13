@@ -12,35 +12,38 @@ body {
   display: grid;
   place-items: center;
   background-color: #ebebeb;
+  padding: 10px;
+  height: 100vh;
 }
 
 .title {
   margin: 20px 0;
+  text-align: center;
 }
 
 .main {
-  /* border: 8px solid #cac8b9; */
+  width: 90%;
+  /* width: 800px; */
+  height: 70vh;
   border: rgb(237, 237, 240) solid 8px;
   border-radius: 24px;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  position: absolute;
+  display: flex;
+  flex-direction: column;
 }
 
 .name {
   display: flex;
-  font-size: 32px;
+  font-size: 1.5rem;
   font-weight: 700;
   padding: 8px 16px;
   color: #7e7e7e;
   background-color: #ebebeb;
 }
 
-.name > span {
+.name>span {
   color: #bbb;
 }
 
@@ -58,10 +61,11 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #f6f6f6;
-  width: 400px;
-  overflow-y: scroll;
+  max-width: 100%;
+  overflow-y: auto;
   overflow-x: hidden;
-  min-height: 70vh;
+  flex-grow: 1;
+  padding: 10px;
 }
 
 .message-left,
@@ -69,8 +73,8 @@ body {
   list-style: none;
   padding: 8px 12px;
   margin: 12px;
-  max-width: 250px;
-  font-size: 18px;
+  max-width: 80%;
+  font-size: 1rem;
   word-wrap: break-word;
 }
 
@@ -89,17 +93,17 @@ body {
   color: #f6f6f6;
 }
 
-.message-left > p > span,
-.message-right > p > span {
+.message-left>p>span,
+.message-right>p>span {
   display: block;
   font-style: italic;
-  font-size: 12px;
+  font-size: 0.8rem;
   margin-top: 4px;
 }
 
 .feedback {
   font-style: italic;
-  font-size: 14px;
+  font-size: 0.9rem;
   padding: 0px 16px 16px 16px;
   color: #2d2d2d;
   text-align: center;
@@ -108,14 +112,15 @@ body {
 .message-form {
   display: flex;
   justify-content: space-between;
-  width: 400px;
+  width: 100%;
   border-top: 1px solid #9492927d;
+  padding: 8px;
 }
 
 .message-input {
   flex-grow: 1;
   height: 48px;
-  font-size: 16px;
+  font-size: 1rem;
   border: none;
   outline: none;
   padding: 0 12px;
@@ -124,7 +129,7 @@ body {
 
 .send-button {
   height: 48px;
-  font-size: 16px;
+  font-size: 1rem;
   border: none;
   padding: 0px 20px;
   outline: none;
@@ -159,11 +164,11 @@ body {
   gap: 8px;
 }
 
-.users > span {
+.users>span {
   color: #0b0b0b;
 }
 
-.users > p {
+.users>p {
   font-weight: 700;
 }
 
@@ -194,10 +199,34 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-::-webkit-scrollbar-vertical {
-  width: 8px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .name {
+    font-size: 1.2rem;
+  }
+
+  .message-left,
+  .message-right {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .message-form {
+    gap: 8px;
+  }
+
+  .message-input {
+    width: 100%;
+  }
+
+  .send-button {
+    width: 45%;
+  }
 }
 
-::-webkit-scrollbar-horizontal {
-  height: 8px;
+.nitesh {
+  position: absolute;
+  color: blueviolet;
+  opacity: 0.5;
+  z-index: -1;
 }
